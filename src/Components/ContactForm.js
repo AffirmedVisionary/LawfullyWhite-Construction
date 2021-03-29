@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Form, Button } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles.css'
+import axios from 'axios'
 
 const ContactForm = () => {
   const [state, setState] = useState({
@@ -11,11 +12,21 @@ const ContactForm = () => {
     message: ''
   })
 
-  const sendEmail = (event) => {
-    event.preventDefault()
+  const [result, setResult] = useState(null)
 
-    console.log('We will fill this up shortly.')
-    // code to trigger Sending email
+  const sendEmail = event => {
+console.log('send button working')
+    event.preventDefault();
+    axios
+     .post('/send', { ...state })
+     .then(response => {
+       setResult(response.data);
+       setState({ name: '', email: '', subject: '', message: '' });
+console.log(result)
+     })
+     .catch(() => {
+       setResult({ success: false, message: 'Something went wrong. Try again later'});
+   });
   }
 
   const onInputChange = (event) => {
