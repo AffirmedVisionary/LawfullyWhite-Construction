@@ -17,4 +17,22 @@ main{
     overflow: hidden;
 }
 
+header {
+  margin: 20px;
+  text-align: center;
+}
 
+.label {
+  font-family: 'Zilla Slab', serif;
+  color: #000000;
+  text-align: left;
+  display: flex;
+}
+
+.success {
+  color: #1ea896;
+}
+
+.error {
+  color: #f45d01;
+}
