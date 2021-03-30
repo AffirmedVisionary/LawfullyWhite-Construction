@@ -2,7 +2,8 @@ import React from 'react';
 
 const Header = () => (
   <header>
-    <h1>Enquiry Form</h1>
+          <h1>Lawfully White Construction</h1>
+      <h2>Website Coming Soon</h2>
   </header>
 );
 

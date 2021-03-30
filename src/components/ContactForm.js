@@ -44,6 +44,7 @@ const ContactForm = () => {
 
   return (
     <div>
+      <h3>Contact us</h3>
       {result && (
         <p className={`${result.success ? 'success' : 'error'}`}>
           {result.message}

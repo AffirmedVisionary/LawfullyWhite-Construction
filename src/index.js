@@ -1,19 +1,20 @@
 import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import ReactDOM from 'react-dom';
-import Header from './components/Header';
-import ContactForm from './components/ContactForm';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
+import ContactScreen from './screens/ContactScreen';
 
 class App extends React.Component {
   render() {
     return (
+      <Router>
       <div className="container">
         <div className="col-md-6 offset-md-3">
-          <Header />
-          <ContactForm />
+            <ContactScreen />
         </div>
-      </div>
+        </div>
+        </Router>
     );
   }
 }
