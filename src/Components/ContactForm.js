@@ -8,21 +8,23 @@ const ContactForm = () => {
   const [state, setState] = useState({
     name: '',
     email: '',
-    subject: '',
-    message: ''
+    _subject: '',
+    message: '',
+    _autoresponse: "Thank you for your message, one of the team will be in touch soon.",
+    _template: 'box'
   })
-
+  
   const [result, setResult] = useState(null)
 
   const sendEmail = event => {
 console.log('send button working')
     event.preventDefault();
     axios.defaults.headers.post['content-type'] = 'application/json'
-    axios.post('https://formsubmit.co/ajax/construction@lawfullywhite.com', { ...state })
+    axios.post('https://formsubmit.co/ajax/f1f5d3176474be8178befcedf74815fe', { ...state })
      .then(response => {
        setResult(response.data);
-       setState({ name: '', email: '', subject: '', message: '' });
-console.log(result)
+       setState({ name: '', email: '', _subject: '', message: '' });
+console.log(response)
      })
      .catch(() => {
        setResult({ success: false, message: 'Something went wrong. Try again later'});
@@ -55,10 +57,10 @@ console.log(result)
         <Form.Group controlId="email">
           <Form.Label className='label'>Email</Form.Label>
           <Form.Control
-            type="text"
+            type="email"
             name="email"
             value={state.email}
-            placeholder="Enter your email"
+            placeholder="Email Address"
             onChange={onInputChange}
           />
         </Form.Group>
@@ -67,7 +69,7 @@ console.log(result)
           <Form.Label className='label'>Subject</Form.Label>
           <Form.Control
             type="text"
-            name="subject"
+            name="_subject"
             value={state.subject}
             placeholder="Enter subject"
             onChange={onInputChange}
@@ -84,6 +86,12 @@ console.log(result)
             placeholder="Enter your message"
             onChange={onInputChange}
           />
+        </Form.Group>
+        <Form.Control type="text" name="_honey" style={{display: 'none'}} />
+
+        <Form.Group controlId='hidden-fields'>
+        <Form.Control type="hidden" name="_autoresponse" value="Thank you for your message, one of the team will be in touch soon." />
+        <Form.Control type="hidden" name="_template" value="box" />
         </Form.Group>
 
         <Button variant="primary" type="submit">
