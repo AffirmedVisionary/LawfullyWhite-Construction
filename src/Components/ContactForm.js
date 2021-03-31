@@ -17,8 +17,8 @@ const ContactForm = () => {
   const sendEmail = event => {
 console.log('send button working')
     event.preventDefault();
-    axios
-     .post('/send', { ...state })
+    axios.defaults.headers.post['content-type'] = 'application/json'
+    axios.post('https://formsubmit.co/ajax/construction@lawfullywhite.com', { ...state })
      .then(response => {
        setResult(response.data);
        setState({ name: '', email: '', subject: '', message: '' });

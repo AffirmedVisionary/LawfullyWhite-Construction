@@ -9,6 +9,8 @@ const buildPath = path.join(__dirname, '..', 'build')
 app.use(express.json())
 app.use(express.static(buildPath))
 
+const PORT = 3030
+
 app.post('/send', (req, res) => {
   try {
     const mailOptions = {
@@ -48,6 +50,6 @@ app.post('/send', (req, res) => {
   }
 })
 
-app.listen(3030, () => {
+app.listen(PORT, () => {
   console.log('server start on port 3030')
 })

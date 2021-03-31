@@ -2,6 +2,7 @@ import PrimaryButton from '../Elements/Buttons'
 import React from 'react'
 import "../styles.css";
 import { Button } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 
 
 const ComingSoon = () => {
@@ -10,7 +11,7 @@ const ComingSoon = () => {
     <div id='comingsoon'>
       <h1>Lawfully White Construction</h1>
       <h2>Website Coming Soon</h2>
-      <Button>Contact-us</Button>
+      <LinkContainer to='contact'><Button>Contact-us</Button></LinkContainer>
     </div>
     </>
   )
